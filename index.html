@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dhruti Lad | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body class="loading">
+
+  
+<!-- ╔══════════════════════════════════════╗
+     ║   NEW ANIMATED LANDING / SPLASH     ║
+     ╚══════════════════════════════════════╝ -->
+<div class="landing-page" id="landing-page">
+
+  <!-- Canvas background -->
+  <canvas id="landing-canvas"></canvas>
+
+  <!-- Floating blobs -->
+  <div class="lb lb1"></div>
+  <div class="lb lb2"></div>
+  <div class="lb lb3"></div>
+
+  <div class="landing-grid">
+
+    <!-- ── LEFT ── GitHub AI animation -->
+    <div class="landing-left">
+      <canvas id="matrix-canvas" class="matrix-canvas"></canvas>
+      <canvas id="landing-canvas"></canvas>
+
+      <div class="gh-wrap">
+
+        <!-- Central GitHub logo sphere -->
+        <div class="gh-sphere">
+          <div class="gh-sphere-glow"></div>
+          <div class="gh-logo-ring">
+            <i class="fa-brands fa-github gh-icon"></i>
+          </div>
+          <div class="gh-pulse pr1"></div>
+          <div class="gh-pulse pr2"></div>
+          <div class="gh-pulse pr3"></div>
+        </div>
+
+        <!-- Orbiting contribution dots -->
+        <div class="gh-orbit-wrap">
+          <div class="gho go1"><div class="gh-dot gd-green"></div></div>
+          <div class="gho go2"><div class="gh-dot gd-blue"></div></div>
+          <div class="gho go3"><div class="gh-dot gd-purple"></div></div>
+          <div class="gho go4"><div class="gh-dot gd-yellow"></div></div>
+          <div class="gho go5"><div class="gh-dot gd-pink"></div></div>
+          <div class="gho go6"><div class="gh-dot gd-cyan"></div></div>
+        </div>
+
+        <!-- Floating stat cards -->
+        <div class="gh-stat-card gsc1">
+          <i class="fa-solid fa-code-branch"></i>
+          <div><strong>Commits</strong><span>31+</span></div>
+        </div>
+        <div class="gh-stat-card gsc2">
+          <i class="fa-solid fa-star"></i>
+          <div><strong>Repos</strong><span>6+</span></div>
+        </div>
+        <div class="gh-stat-card gsc3">
+          <i class="fa-solid fa-fire"></i>
+          <div><strong>Projects</strong><span>3+</span></div>
+        </div>
+
+        <!-- Scan line -->
+        <div class="gh-scan"></div>
+      </div>
+    </div><!-- /landing-left -->
+
+    <!-- ── RIGHT ── Name, skills, enter button -->
+    <div class="landing-right">
+
+      <div class="landing-tag">
+        <span class="tag-dot"></span> Available for Work
+      </div>
+
+      <h1 class="landing-name">
+        <span class="ln-hello">Hello, I'm</span>
+        <span class="ln-main">Dhruti<br>Lad</span>
+      </h1>
+
+      <!-- Big animated "Frontend Developer" word art -->
+      <div class="fd-word-wrap" aria-hidden="true">
+        <span class="fd-letter" style="--i:0">F</span>
+        <span class="fd-letter" style="--i:1">r</span>
+        <span class="fd-letter" style="--i:2">o</span>
+        <span class="fd-letter" style="--i:3">n</span>
+        <span class="fd-letter" style="--i:4">t</span>
+        <span class="fd-letter" style="--i:5">e</span>
+        <span class="fd-letter" style="--i:6">n</span>
+        <span class="fd-letter" style="--i:7">d</span>
+        <span class="fd-space"> </span>
+        <span class="fd-letter fd-dev" style="--i:8">D</span>
+        <span class="fd-letter fd-dev" style="--i:9">e</span>
+        <span class="fd-letter fd-dev" style="--i:10">v</span>
+        <span class="fd-letter fd-dev" style="--i:11">e</span>
+        <span class="fd-letter fd-dev" style="--i:12">l</span>
+        <span class="fd-letter fd-dev" style="--i:13">o</span>
+        <span class="fd-letter fd-dev" style="--i:14">p</span>
+        <span class="fd-letter fd-dev" style="--i:15">e</span>
+        <span class="fd-letter fd-dev" style="--i:16">r</span>
+      </div>
+
+      <!-- Plain readable subtitle -->
+
+
+      <p class="landing-desc">
+        Passionate Frontend Developer skilled in HTML, CSS, and JavaScript.
+I build responsive, user-friendly websites with clean code and modern UI.
+      </p>
+
+      <!-- Stats row -->
+      <!-- <div class="landing-stats">
+        <div class="ls-stat"><span>3+</span><p>Projects</p></div>
+        <div class="ls-stat"><span>1+</span><p>Years Exp.</p></div>
+        <div class="ls-stat"><span>3+</span><p>Certificates</p></div>
+      </div> -->
+
+      <!-- Enter button -->
+      <button class="enter-btn" id="enter-btn">
+        <span class="eb-text">Enter Portfolio</span>
+        <span class="eb-icon"><i class="fa-solid fa-arrow-right"></i></span>
+        <div class="eb-ripple"></div>
+      </button>
+
+
+
+    </div><!-- /landing-right -->
+  </div><!-- /landing-grid -->
+</div><!-- /landing-page -->
+
+<!-- ======== PRELOADER ======== -->
+<div class="preloader" id="preloader">
+  <div class="preloader-inner">
+    <div class="preloader-logo">DL<span>.</span></div>
+    <div class="preloader-bar"><div class="preloader-fill" id="preloader-fill"></div></div>
+    <p class="preloader-text" id="preloader-text">Loading<span class="dots">...</span></p>
+  </div>
+  <div class="preloader-particles">
+    <span></span><span></span><span></span>
+    <span></span><span></span><span></span>
+  </div>
+</div>
+
+<!-- ======== NAVBAR ======== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-brand">Dhruti<span>.</span></div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#github-stats">GitHub</a></li>
+    <li><a href="#resume">Resume</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ======== HERO ======== -->
+<section class="hero" id="home">
+  <div class="hero-bg-particles">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="hero-content reveal-hero">
+    <div class="profile-photo-wrapper">
+      <img src="image/photo.jpeg" alt="Profile Photo" class="profile-photo"
+           onerror="this.src='https://placehold.co/160x160/6c63ff/ffffff?text=DL'" />
+    </div>
+    <p class="hero-greeting">Hi there, I'm</p>
+    <h1 class="hero-name">Dhruti Lad</h1>
+    <h2 class="hero-role typed-wrapper">
+      <span id="typed-text">Frontend Developer</span><span class="cursor">|</span>
+    </h2>
+    <p class="hero-tagline">I build fast, accessible, and beautiful web experiences.</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary btn-pulse">
+        <i class="fa-solid fa-rocket"></i> View Projects
+      </a>
+      <a href="#contact" class="btn btn-outline btn-glow">
+        <i class="fa-solid fa-paper-plane"></i> Hire Me
+      </a>
+    </div>
+    <div class="hero-socials">
+      <a href="https://github.com/Dhruti2007/Dhruti2007" target="_blank" aria-label="GitHub">
+        <i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/dhruti-lad-06a1b3382/" target="_blank" aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://leetcode.com/u/dhruti23/" target="_blank" aria-label="LeetCode">
+        <i class="fa-solid fa-code"></i></a>
+      <a href="mailto:dhrutilad2007@gmail.com" aria-label="Email">
+        <i class="fa-solid fa-envelope"></i></a>
+    </div>
+  </div>
+  <div class="hero-scroll-down"><span></span></div>
+</section>
+
+<!-- ======== ABOUT ======== -->
+<section class="section" id="about">
+  <div class="container">
+    <h2 class="section-title">About <span>Me</span></h2>
+    <div class="about-grid">
+      <div class="about-image fade-up">
+        <img src="image/photo1.jpeg" alt="About Me"
+             onerror="this.src='https://placehold.co/340x400/6c63ff/ffffff?text=Dhruti+Lad'" />
+        <div class="about-exp-badge"><span>2+</span> Years Exp.</div>
+      </div>
+      <div class="about-text fade-up">
+        <h3>Who am I?</h3>
+        <p>I'm <strong>Dhruti Lad</strong>, a passionate Frontend Developer based in <strong>Vadodara, India</strong>.
+           I love crafting clean, performant web applications and solving challenging problems.</p>
+        <p>I'm currently pursuing <strong>B.Tech in Computer Science &amp; Engineering</strong> and am open to
+           full-time roles and freelance projects.</p>
+        <ul class="about-details">
+          <li><i class="fa-solid fa-user"></i>         <strong>Name:</strong>     Dhruti Lad</li>
+          <li><i class="fa-solid fa-envelope"></i>     <strong>Email:</strong>    dhrutilad2007@gmail.com</li>
+          <li><i class="fa-solid fa-location-dot"></i> <strong>Location:</strong> Vadodara, India</li>
+          <li><i class="fa-solid fa-graduation-cap"></i><strong>Degree:</strong>  B.Tech CSE</li>
+          <li><i class="fa-brands fa-linkedin"></i>    <strong>LinkedIn:</strong>
+              <a href="https://www.linkedin.com/in/dhruti-lad-06a1b3382/" target="_blank">dhruti-lad-06a1b3382</a></li>
+          <li><i class="fa-solid fa-code"></i>         <strong>LeetCode:</strong>
+              <a href="https://leetcode.com/u/dhruti23/" target="_blank">dhruti23</a></li>
+          <li><i class="fa-solid fa-circle-check" style="color:#22c55e"></i>
+              <strong>Status:</strong> Open to Opportunities</li>
+        </ul>
+        <a href="image/resume.pdf" class="btn btn-primary">View Resume <i class="fa-solid fa-file-lines"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== SKILLS ======== -->
+<section class="section section-alt" id="skills">
+  <div class="container">
+    <h2 class="section-title">My <span>Skills</span></h2>
+    <div class="skills-categories">
+      <div class="skill-category fade-up">
+        <h3><i class="fa-solid fa-code"></i> Frontend</h3>
+        <div class="skill-tags">
+          <span class="tag">HTML5</span><span class="tag">CSS3</span>
+          <span class="tag">JavaScript</span>
+        </div>
+      </div>
+      <!-- <div class="skill-category fade-up">
+        <h3><i class="fa-solid fa-server"></i> Backend</h3>
+        <div class="skill-tags">
+          <span class="tag">Node.js</span><span class="tag">Express.js</span>
+          <span class="tag">Python</span><span class="tag">REST APIs</span>
+          <span class="tag">JWT Auth</span>
+        </div>
+      </div> -->
+      <div class="skill-category fade-up">
+        <h3><i class="fa-solid fa-database"></i> Database</h3>
+        <div class="skill-tags">
+          <span class="tag">MySQL</span>
+      </div>
+      </div>
+      <div class="skill-category fade-up">
+        <h3><i class="fa-solid fa-wrench"></i> Tools &amp; DevOps</h3>
+        <div class="skill-tags">
+          <span class="tag">Git &amp; GitHub</span><span class="tag">VS Code</span>
+          <span class="tag">Figma</span>
+          <span class="tag">Linux</span>
+        </div>
+      </div>
+    </div>
+    <div class="skill-bars">
+      <div class="skill-bar-item fade-up">
+        <div class="skill-bar-label"><span>HTML / CSS</span><span>90%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
+      </div>
+      <div class="skill-bar-item fade-up">
+        <div class="skill-bar-label"><span>JavaScript</span><span>82%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="82"></div></div>
+      </div>
+       <div class="skill-bar-item fade-up">
+        <div class="skill-bar-label"><span>c</span><span>80%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="82"></div></div>
+      </div>
+       <div class="skill-bar-item fade-up">
+        <div class="skill-bar-label"><span>c++</span><span>80%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="82"></div></div>
+      </div>
+       <div class="skill-bar-item fade-up">
+        <div class="skill-bar-label"><span>Java</span><span>85%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="82"></div></div>
+      </div>
+      <div class="skill-bar-item fade-up">
+        <div class="skill-bar-label"><span>Python</span><span>50%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="68"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== EXPERIENCE ======== -->
+<section class="section" id="experience">
+  <div class="container">
+    <h2 class="section-title">Internship <span>Experience</span></h2>
+    <div class="timeline">
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-date"><i class="fa-solid fa-calendar-days"></i> Jun 2024 – Aug 2024</span>
+          <h3>Web Developer Intern</h3>
+
+          <h4>
+            <i class="fa-solid fa-building"></i>
+            Company Name &nbsp;·&nbsp; Remote
+          </h4>
+
+          <ul>
+            <li>Designed and developed responsive websites using HTML, CSS and JavaScript.</li>
+            <li>Created user-friendly web pages with clean and modern UI designs.</li>
+            <li>Improved website performance and fixed bugs for a better user experience.</li>
+            <li>Worked with Git and GitHub for version control and project management.</li>
+            <li>Collaborated with the team to develop and test web applications.</li>
+          </ul>
+
+          <div class="project-tags">
+            <span class="tag tag-sm">HTML</span>
+            <span class="tag tag-sm">CSS</span>
+            <span class="tag tag-sm">JavaScript</span>
+            <span class="tag tag-sm">Git</span>
+            <span class="tag tag-sm">GitHub</span>
+            <span class="tag tag-sm">Responsive Design</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 
+
+<!-- ======== STATS SECTION ======== -->
+<section class="section stats-section parallax-bg" id="stats" data-parallax="0.3">
+  <div class="stats-overlay"></div>
+  <div class="container">
+    <h2 class="section-title" style="color:#fff">By The <span>Numbers</span></h2>
+    <div class="stats-grid">
+      <div class="stat-item zoom-in">
+        <div class="stat-icon bounce-icon"><i class="fa-solid fa-code"></i></div>
+        <div class="stat-count" data-target="10">0</div>
+        <div class="stat-plus">+</div>
+        <p>Projects Built</p>
+        <div class="stat-progress-bar"><div class="stat-progress-fill" data-width="70"></div></div>
+      </div>
+      <div class="stat-item zoom-in">
+        <div class="stat-icon bounce-icon"><i class="fa-brands fa-github"></i></div>
+        <div class="stat-count" data-target="50">0</div>
+        <div class="stat-plus">+</div>
+        <p>GitHub Commits</p>
+        <div class="stat-progress-bar"><div class="stat-progress-fill" data-width="55"></div></div>
+      </div>
+      <div class="stat-item zoom-in">
+        <div class="stat-icon bounce-icon"><i class="fa-solid fa-trophy"></i></div>
+        <div class="stat-count" data-target="21">0</div>
+        <div class="stat-plus">+</div>
+        <p>LeetCode Solved</p>
+        <div class="stat-progress-bar"><div class="stat-progress-fill" data-width="40"></div></div>
+      </div>
+      <div class="stat-item zoom-in">
+        <div class="stat-icon bounce-icon"><i class="fa-solid fa-certificate"></i></div>
+        <div class="stat-count" data-target="5">0</div>
+        <div class="stat-plus">+</div>
+        <p>Certifications</p>
+        <div class="stat-progress-bar"><div class="stat-progress-fill" data-width="85"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== PROJECTS ======== -->
+<section class="section section-alt" id="projects">
+  <div class="container">
+    <h2 class="section-title">My <span>Projects</span></h2>
+    <div class="projects-grid">
+
+      <div class="project-card fade-left">
+        <div class="project-img project-bg pb-amazon">
+          <h2>🛒 Amazon Clone</h2>
+          <div class="project-overlay">
+            <a href="https://dhruti2007.github.io/shopping-homepage/" target="_blank" class="btn btn-sm">
+              Live <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+            <a href="https://github.com/Dhruti2007/shopping-homepage" target="_blank" class="btn btn-sm btn-outline">
+              GitHub <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>Amazon Clone</h3>
+          <p>A responsive Amazon homepage clone built using HTML and CSS with a modern and user-friendly interface.</p>
+          <div class="project-tags">
+            <span class="tag tag-sm">HTML</span>
+            <span class="tag tag-sm">CSS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-img project-bg pb-currency">
+          <h2>💱 Currency Converter</h2>
+          <div class="project-overlay">
+            <a href="https://dhruti2007.github.io/currency-converter/" target="_blank" class="btn btn-sm">
+              Live <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+            <a href="https://github.com/Dhruti2007/currency-converter" target="_blank" class="btn btn-sm btn-outline">
+              GitHub <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>Currency Converter</h3>
+          <p>A currency converter web application that converts currencies using real-time exchange rates and country flags.</p>
+          <div class="project-tags">
+            <span class="tag tag-sm">HTML</span>
+            <span class="tag tag-sm">CSS</span>
+            <span class="tag tag-sm">JavaScript</span>
+            <span class="tag tag-sm">API</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card fade-right">
+        <div class="project-img project-bg pb-game">
+          <h2>🪨 Stone, Paper &amp; Scissors</h2>
+          <div class="project-overlay">
+            <a href="https://dhruti2007.github.io/my-project/" target="_blank" class="btn btn-sm">
+              Live <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+            <a href="https://github.com/Dhruti2007/my-project" target="_blank" class="btn btn-sm btn-outline">
+              GitHub <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>Stone, Paper &amp; Scissors Game</h3>
+          <p>A fun interactive game built using HTML, CSS, and JavaScript where you play against the computer.</p>
+          <div class="project-tags">
+            <span class="tag tag-sm">HTML</span>
+            <span class="tag tag-sm">CSS</span>
+            <span class="tag tag-sm">JavaScript</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+</section>
+
+<!-- ======== ACHIEVEMENTS ======== -->
+<section class="section" id="achievements">
+  <div class="container">
+    <h2 class="section-title">Achievements &amp; <span>Certifications</span></h2>
+    <div class="achieve-grid">
+      <div class="achieve-card fade-up">
+        <div class="achieve-icon"><i class="fa-solid fa-trophy"></i></div>
+        <div class="achieve-info">
+          <h3>LeetCode 21+ Problems</h3>
+          <p>Solving problems on LeetCode and growing problem-solving skills consistently.</p>
+          <a href="https://leetcode.com/u/dhruti23/" target="_blank" class="achieve-link">View Profile <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+      </div>
+      <div class="achieve-card fade-up">
+        <div class="achieve-icon hack"><i class="fa-solid fa-medal"></i></div>
+        <div class="achieve-info">
+          <h3>Hackathon Participant | Institute Hackathon 2025</h3>
+          <p>Developed a concept for an Automated Student Attendance Monitoring and Analytics System for Colleges, focusing on attendance automation, analytics dashboards, and data-driven insights.</p>
+          <a href="./image/image.jpg" target="_blank" class="achieve-link">View Certificate <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+      </div>
+      <div class="achieve-card fade-up">
+        <div class="achieve-icon oss"><i class="fa-brands fa-github"></i></div>
+        <div class="achieve-info">
+          <h3>Open Source Contributor</h3>
+          <p>Contributing to open-source projects on GitHub.</p>
+          <a href="https://github.com/Dhruti2007/Dhruti2007" target="_blank" class="achieve-link">GitHub Profile <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+      </div>
+
+      <div class="achieve-card fade-up">
+    <div class="achieve-icon aws">
+        <i class="fa-brands fa-aws"></i>
+    </div>
+    <div class="achieve-info">
+        <h3>AWS Kickstart with Kiro Workshop</h3>
+        <p>
+            Successfully participated in the AWS Student Builder Group's
+            "Kickstart with Kiro" Workshop organized in association with
+            Tinkering Hub, Parul University on 19 June 2026.
+        </p>
+        <a href="./image/certificate.jpg" target="_blank" class="achieve-link">
+            View Certificate <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+    </div>
+</div>
+
+ <div class="achieve-card fade-up">
+    <div class="achieve-icon cpp">
+        <i class="fa-solid fa-code"></i>
+    </div>
+
+    <div class="achieve-info">
+        <h3>C++ Programming Certification</h3>
+        <p>
+            Successfully completed the C++ Programming Certification,
+            gaining a strong foundation in object-oriented programming,
+            data structures, problem-solving, and software development concepts.
+        </p>
+
+        <a href="./image/c++ certificate.jpeg" target="_blank" class="achieve-link">
+            View Certificate
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+    </div>
+</div>
+
+<div class="achieve-card fade-up">
+    <div class="achieve-icon java">
+        <i class="fa-brands fa-java"></i>
+    </div>
+
+    <div class="achieve-info">
+        <h3>Java Programming Certification</h3>
+        <p>
+            Successfully completed the Java Programming Certification,
+            enhancing my skills in object-oriented programming, exception handling,
+            application development, and core Java concepts.
+        </p>
+
+        <a href="./image/java certificate.jpeg" target="_blank" class="achieve-link">
+            View Certificate
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+    </div>
+</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== EDUCATION ======== -->
+<section class="section section-alt" id="education">
+  <div class="container">
+    <h2 class="section-title">My <span>Education</span></h2>
+    <div class="edu-timeline">
+      <div class="edu-card fade-up">
+        <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+        <div class="edu-content">
+          <span class="edu-year">2024 – 2026</span>
+          <h3>B.Tech – Computer Science &amp; Engineering</h3>
+          <h4>Parul University, Vadodara</h4>
+          <p>CGPA: <strong>8.40/ 10</strong></p>
+          <p>Relevant coursework: Web Development</p>
+        </div>
+      </div>
+      <div class="edu-card fade-up">
+        <div class="edu-icon school"><i class="fa-solid fa-school"></i></div>
+        <div class="edu-content">
+          <span class="edu-year">2021 – 2023</span>
+          <h3>Class XII – Science (PCM)</h3>
+          <h4>S.S Agrawal School, Navsari</h4>
+          <p>Percentage: <strong>77.29%</strong></p>
+        </div>
+      </div>
+      <div class="edu-card fade-up">
+        <div class="edu-icon school2"><i class="fa-solid fa-book-open"></i></div>
+        <div class="edu-content">
+          <span class="edu-year">2019 – 2021</span>
+          <h3>Class X</h3>
+          <h4>Divine Public School, Navsari</h4>
+          <p>Percentage: <strong>91.5%</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== GITHUB STATS ======== -->
+<section class="section" id="github-stats">
+  <div class="container">
+    <h2 class="section-title">GitHub <span>Stats</span></h2>
+
+    <!-- 3-column layout: Left | Middle | Right -->
+    <div class="gh-three-col">
+
+      <!-- ── LEFT: Git Status stats ── -->
+      <div class="gh-col gh-col-left fade-left">
+        <h3 class="gh-col-title"><i class="fa-brands fa-github"></i> Git Status</h3>
+
+        <div class="gh-status-list">
+          <div class="gh-status-item">
+            <div class="gh-status-icon" style="background:rgba(108,99,255,0.15);color:#6c63ff">
+              <i class="fa-solid fa-code-commit"></i>
+            </div>
+            <div>
+              <span class="gh-status-num">31</span>
+              <p>Total Contributions</p>
+            </div>
+          </div>
+          <div class="gh-status-item">
+            <div class="gh-status-icon" style="background:rgba(6,182,212,0.15);color:#06b6d4">
+              <i class="fa-solid fa-code-branch"></i>
+            </div>
+            <div>
+              <span class="gh-status-num">6</span>
+              <p>Public Repositories</p>
+            </div>
+          </div>
+          <div class="gh-status-item">
+            <div class="gh-status-icon" style="background:rgba(245,158,11,0.15);color:#f59e0b">
+              <i class="fa-solid fa-fire"></i>
+            </div>
+            <div>
+              <span class="gh-status-num">0</span>
+              <p>Current Streak</p>
+            </div>
+          </div>
+          <div class="gh-status-item">
+            <div class="gh-status-icon" style="background:rgba(16,185,129,0.15);color:#10b981">
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <div>
+              <span class="gh-status-num">3</span>
+              <p>Projects Live</p>
+            </div>
+          </div>
+          <div class="gh-status-item">
+            <div class="gh-status-icon" style="background:rgba(236,72,153,0.15);color:#ec4899">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <div>
+              <span class="gh-status-num">0</span>
+              <p>Followers</p>
+            </div>
+          </div>
+          <div class="gh-status-item">
+            <div class="gh-status-icon" style="background:rgba(234,179,8,0.15);color:#eab308">
+              <i class="fa-solid fa-calendar-days"></i>
+            </div>
+            <div>
+              <span class="gh-status-num">2024</span>
+              <p>Member Since</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- <a href="https://github.com/Dhruti2007/Dhruti2007" target="_blank" class="btn btn-primary gh-visit-btn">
+          <i class="fa-brands fa-github"></i> View Profile
+        </a> -->
+      </div>
+
+      <!-- ── MIDDLE: GitHub API stats image ── -->
+      <div class="gh-col gh-col-mid fade-up">
+        <h3 class="gh-col-title"><i class="fa-solid fa-chart-line"></i> GitHub Activity</h3>
+        <div class="gh-mid-imgs">
+          <div class="github-card gh-mid-card">
+            <img
+              src="https://streak-stats.demolab.com/?user=Dhruti2007&theme=tokyonight&hide_border=true&background=1e1e35&ring=6c63ff&fire=f59e0b&currStreakLabel=6c63ff"
+              alt="GitHub Streak" loading="lazy" />
+          </div>
+        </div>
+      </div>
+
+      <!-- ── RIGHT: Top Languages ── -->
+      <div class="gh-col gh-col-right fade-right">
+        <h3 class="gh-col-title"><i class="fa-solid fa-chart-pie"></i> Top Languages</h3>
+
+        <!-- Combined colour bar -->
+        <div class="gh-combined-bar">
+          <div style="width:45%;background:#e34c26" title="HTML 45%"></div>
+          <div style="width:35%;background:#f1e05a" title="JavaScript 35%"></div>
+          <div style="width:20%;background:#563d7c" title="CSS 20%"></div>
+        </div>
+
+        <!-- Individual language bars -->
+        <div class="gh-langs-list">
+          <div class="gh-lang-item">
+            <div class="gh-lang-header">
+              <span class="gh-lang-dot" style="background:#e34c26"></span>
+              <span class="gh-lang-name">HTML</span>
+              <span class="gh-lang-pct">45%</span>
+            </div>
+            <div class="gh-lang-bar-track">
+              <div class="gh-lang-bar-fill" data-width="45" style="background:#e34c26"></div>
+            </div>
+          </div>
+          <div class="gh-lang-item">
+            <div class="gh-lang-header">
+              <span class="gh-lang-dot" style="background:#f1e05a"></span>
+              <span class="gh-lang-name">JavaScript</span>
+              <span class="gh-lang-pct">35%</span>
+            </div>
+            <div class="gh-lang-bar-track">
+              <div class="gh-lang-bar-fill" data-width="35" style="background:#f1e05a"></div>
+            </div>
+          </div>
+          <div class="gh-lang-item">
+            <div class="gh-lang-header">
+              <span class="gh-lang-dot" style="background:#563d7c"></span>
+              <span class="gh-lang-name">CSS</span>
+              <span class="gh-lang-pct">20%</span>
+            </div>
+            <div class="gh-lang-bar-track">
+              <div class="gh-lang-bar-fill" data-width="20" style="background:#563d7c"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Donut-style legend -->
+        <div class="gh-lang-legend">
+          <div class="gh-legend-item">
+            <span style="background:#e34c26"></span> HTML
+          </div>
+          <div class="gh-legend-item">
+            <span style="background:#f1e05a"></span> JavaScript
+          </div>
+          <div class="gh-legend-item">
+            <span style="background:#563d7c"></span> CSS
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /gh-three-col -->
+
+    <div class="github-cta fade-up">
+      <a href="https://github.com/Dhruti2007/Dhruti2007" target="_blank" class="btn btn-primary">
+        <i class="fa-brands fa-github"></i> Visit My GitHub
+      </a>
+      <a href="https://leetcode.com/u/dhruti23/" target="_blank" class="btn btn-outline">
+        <i class="fa-solid fa-code"></i> Visit My LeetCode
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== RESUME ======== -->
+<section class="section section-alt" id="resume">
+  <div class="container">
+    <h2 class="section-title">My <span>Resume</span></h2>
+    <div class="resume-box fade-up">
+      <div class="resume-icon"><i class="fa-solid fa-file-pdf"></i></div>
+      <div class="resume-text">
+        <h3>Download My Resume</h3>
+        <p>Get a quick overview of my skills, experience, and education in PDF format.</p>
+        <div class="resume-actions">
+          <a href="image/resume.pdf" download class="btn btn-primary">Download PDF <i class="fa-solid fa-download"></i></a>
+          <a href="image/resume.pdf" target="_blank" class="btn btn-outline">View Online <i class="fa-solid fa-eye"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="resume-stats fade-up">
+      <div class="r-stat"><span>1+</span><p>Years Experience</p></div>
+      <div class="r-stat"><span>0</span><p>Projects Built</p></div>
+      <div class="r-stat"><span>21+</span><p>LeetCode Solved</p></div>
+      <div class="r-stat"><span>3+</span><p>Certifications</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== TESTIMONIALS ======== -->
+<!-- <section class="section section-alt" id="testimonials">
+  <div class="container">
+    <h2 class="section-title">What People <span>Say</span></h2>
+    <div class="testimonial-carousel" id="testimonial-carousel">
+      <div class="testimonial-track" id="testimonial-track">
+
+        <div class="testimonial-slide">
+          <div class="testimonial-card zoom-in">
+            <div class="testimonial-quote"><i class="fa-solid fa-quote-left"></i></div>
+            <p>"Dhruti delivered pixel-perfect designs ahead of schedule. Her attention to detail and React skills are impressive — she's exactly the kind of developer every team needs."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar"><i class="fa-solid fa-user-tie"></i></div>
+              <div><strong>Rahul Mehta</strong><span>Tech Lead, StartupXYZ</span></div>
+            </div>
+            <div class="testimonial-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-slide">
+          <div class="testimonial-card zoom-in">
+            <div class="testimonial-quote"><i class="fa-solid fa-quote-left"></i></div>
+            <p>"Working with Dhruti was a fantastic experience. She quickly grasped complex requirements and built a robust API integration within days. Highly recommended!"</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="background:rgba(245,158,11,0.2);color:#f59e0b"><i class="fa-solid fa-user-graduate"></i></div>
+              <div><strong>Priya Shah</strong><span>Product Manager, InnovateCo</span></div>
+            </div>
+            <div class="testimonial-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-slide">
+          <div class="testimonial-card zoom-in">
+            <div class="testimonial-quote"><i class="fa-solid fa-quote-left"></i></div>
+            <p>"Dhruti has an outstanding ability to translate design mockups into clean, maintainable code. Her enthusiasm for learning new technologies is truly remarkable."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" style="background:rgba(16,185,129,0.2);color:#34d399"><i class="fa-solid fa-chalkboard-user"></i></div>
+              <div><strong>Dr. Anil Kumar</strong><span>Professor, CSE Department</span></div>
+            </div>
+            <div class="testimonial-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="testimonial-controls">
+        <button class="testi-btn" id="testi-prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="testi-dots" id="testi-dots"></div>
+        <button class="testi-btn" id="testi-next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- ======== CTA SECTION ======== -->
+<section class="section cta-section" id="cta">
+  <div class="cta-bg-orb cta-orb1"></div>
+  <div class="cta-bg-orb cta-orb2"></div>
+  <div class="container">
+    <div class="cta-inner fade-up">
+      <div class="cta-badge"><i class="fa-solid fa-bolt"></i> Open for Work &amp; Collaborations</div>
+      <h2 class="cta-heading">Let's Build Something <span>Amazing</span> Together</h2>
+      <p class="cta-sub">Whether you have a project idea, a job opportunity, or just want to connect — I'm ready to start the journey with you.</p>
+
+      <div class="cta-buttons">
+        <button class="cta-btn cta-primary" onclick="openCTAModal('preorder')">
+          <i class="fa-solid fa-rocket"></i>
+          <span>Preorder Now</span>
+          <div class="cta-btn-shine"></div>
+        </button>
+        <button class="cta-btn cta-secondary" onclick="openCTAModal('early-access')">
+          <i class="fa-solid fa-key"></i>
+          <span>Get Early Access</span>
+        </button>
+        <button class="cta-btn cta-accent" onclick="openCTAModal('waitlist')">
+          <i class="fa-solid fa-list-check"></i>
+          <span>Join the Waitlist</span>
+        </button>
+        <button class="cta-btn cta-ghost" onclick="openCTAModal('reserve')">
+          <i class="fa-solid fa-calendar-check"></i>
+          <span>Reserve Your Spot</span>
+        </button>
+        <button class="cta-btn cta-gradient" onclick="openCTAModal('journey')">
+          <i class="fa-solid fa-flag-checkered"></i>
+          <span>Start Your Journey</span>
+          <div class="cta-btn-shine"></div>
+        </button>
+      </div>
+
+      <div class="cta-trust">
+        <span><i class="fa-solid fa-shield-halved"></i> No spam, ever</span>
+        <span><i class="fa-solid fa-clock"></i> Response within 24h</span>
+        <span><i class="fa-solid fa-star"></i> 100% Free to connect</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== CTA MODAL ======== -->
+<div class="cta-modal-overlay" id="cta-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="cta-modal">
+    <button class="modal-close" id="modal-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-icon" id="modal-icon"><i class="fa-solid fa-rocket"></i></div>
+    <h3 class="modal-title" id="modal-title">Preorder Now</h3>
+    <p class="modal-desc" id="modal-desc">Be the first to get access. Drop your email and I'll reach out personally.</p>
+    <form class="modal-form" id="modal-form">
+      <div class="form-group">
+        <label for="modal-name">Your Name</label>
+        <input type="text" id="modal-name" placeholder="Dhruti Lad" required />
+      </div>
+      <div class="form-group">
+        <label for="modal-email">Your Email</label>
+        <input type="email" id="modal-email" placeholder="you@email.com" required />
+      </div>
+      <div class="form-group" id="modal-msg-group">
+        <label for="modal-msg">Message (optional)</label>
+        <input type="text" id="modal-msg" placeholder="Tell me about your project..." />
+      </div>
+      <button type="submit" class="btn btn-primary btn-full modal-submit">
+        Confirm <i class="fa-solid fa-arrow-right"></i>
+      </button>
+      <p class="modal-status" id="modal-status"></p>
+    </form>
+  </div>
+</div>
+
+<!-- ======== CONTACT ======== -->
+<section class="section" id="contact">
+  <div class="container">
+    <h2 class="section-title">Get In <span>Touch</span></h2>
+    <p class="section-subtitle">Have a project or opportunity? I'd love to hear from you!</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-card fade-up">
+          <i class="fa-solid fa-envelope"></i>
+          <div><h4>Email</h4><a href="mailto:dhrutilad2007@gmail.com">dhrutilad2007@gmail.com</a></div>
+        </div>
+        <div class="contact-card fade-up">
+          <i class="fa-brands fa-linkedin"></i>
+          <div><h4>LinkedIn</h4>
+            <a href="https://www.linkedin.com/in/dhruti-lad-06a1b3382/" target="_blank">dhruti-lad-06a1b3382</a></div>
+        </div>
+        <div class="contact-card fade-up">
+          <i class="fa-brands fa-github"></i>
+          <div><h4>GitHub</h4>
+            <a href="https://github.com/Dhruti2007/Dhruti2007" target="_blank">Dhruti2007</a></div>
+        </div>
+        <div class="contact-card fade-up">
+          <i class="fa-solid fa-code"></i>
+          <div><h4>LeetCode</h4>
+            <a href="https://leetcode.com/u/dhruti23/" target="_blank">dhruti23</a></div>
+        </div>
+        <div class="contact-card fade-up">
+          <i class="fa-solid fa-phone"></i>
+          <div><h4>Phone</h4><a href="tel:+910000000000">+91 63550 0XXXX</a></div>
+        </div>
+      </div>
+      <form class="contact-form fade-up" id="contact-form">
+        <div class="form-group">
+          <label for="cname">Your Name</label>
+          <input type="text" id="cname" name="name" placeholder="John Doe" required />
+        </div>
+        <div class="form-group">
+          <label for="cemail">Your Email</label>
+          <input type="email" id="cemail" name="email" placeholder="john@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="csubject">Subject</label>
+          <input type="text" id="csubject" name="subject" placeholder="Project Inquiry" />
+        </div>
+        <div class="form-group">
+          <label for="cmessage">Message</label>
+          <textarea id="cmessage" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">
+          Send Message <i class="fa-solid fa-paper-plane"></i>
+        </button>
+        <p class="form-status" id="form-status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ======== FOOTER ======== -->
+<footer class="footer footer-fade" id="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">Dhruti<span>.</span></div>
+    <p class="footer-tagline">Building the web, one commit at a time.</p>
+    <div class="footer-socials">
+      <a href="https://github.com/Dhruti2007/Dhruti2007" target="_blank" aria-label="GitHub" class="footer-social-icon">
+        <i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/dhruti-lad-06a1b3382/" target="_blank" aria-label="LinkedIn" class="footer-social-icon">
+        <i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://leetcode.com/u/dhruti23/" target="_blank" aria-label="LeetCode" class="footer-social-icon">
+        <i class="fa-solid fa-code"></i></a>
+      <a href="mailto:dhrutilad2007@gmail.com" aria-label="Email" class="footer-social-icon">
+        <i class="fa-solid fa-envelope"></i></a>
+    </div>
+    <nav class="footer-links">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a>
+      <a href="#projects">Projects</a><a href="#contact">Contact</a>
+    </nav>
+    <p class="footer-copy">
+      &copy; <span id="year"></span> <strong>Dhruti Lad</strong>. Designed &amp; Built with
+      <i class="fa-solid fa-heart" style="color:#ef4444"></i> using HTML, CSS &amp; JS.
+    </p>
+  </div>
+</footer>
+
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
